@@ -15,6 +15,7 @@
 		431E86B8248F57C800E3BBB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431E86B6248F57C800E3BBB3 /* LaunchScreen.storyboard */; };
 		431E86C024908DBD00E3BBB3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E86BF24908DBD00E3BBB3 /* Api.swift */; };
 		431E86C22490977C00E3BBB3 /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E86C12490977C00E3BBB3 /* MoviesTableViewCell.swift */; };
+		802D4EA3CC91010C430E3BDC /* Pods_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A813D64678A860A0800FDE55 /* Pods_Flix.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		431E86B9248F57C800E3BBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		431E86BF24908DBD00E3BBB3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		431E86C12490977C00E3BBB3 /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
+		A813D64678A860A0800FDE55 /* Pods_Flix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D47E9010B76D42EE814D2997 /* Pods-Flix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix.release.xcconfig"; path = "Target Support Files/Pods-Flix/Pods-Flix.release.xcconfig"; sourceTree = "<group>"; };
+		FF503CA7E9EEC901B27D5D63 /* Pods-Flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix.debug.xcconfig"; path = "Target Support Files/Pods-Flix/Pods-Flix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				802D4EA3CC91010C430E3BDC /* Pods_Flix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				431E86AA248F57C300E3BBB3 /* Flix */,
 				431E86A9248F57C300E3BBB3 /* Products */,
+				D22ED714D21EF807A8BF8730 /* Pods */,
+				703A73C5B01193A37904B762 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,24 @@
 			path = Flix;
 			sourceTree = "<group>";
 		};
+		703A73C5B01193A37904B762 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A813D64678A860A0800FDE55 /* Pods_Flix.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D22ED714D21EF807A8BF8730 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF503CA7E9EEC901B27D5D63 /* Pods-Flix.debug.xcconfig */,
+				D47E9010B76D42EE814D2997 /* Pods-Flix.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 431E86BC248F57C800E3BBB3 /* Build configuration list for PBXNativeTarget "Flix" */;
 			buildPhases = (
+				94805268473BA8B6FE9C214D /* [CP] Check Pods Manifest.lock */,
 				431E86A4248F57C300E3BBB3 /* Sources */,
 				431E86A5248F57C300E3BBB3 /* Frameworks */,
 				431E86A6248F57C300E3BBB3 /* Resources */,
+				0DA8AA260F2902CA689C0057 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +165,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DA8AA260F2902CA689C0057 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flix/Pods-Flix-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flix/Pods-Flix-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flix/Pods-Flix-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94805268473BA8B6FE9C214D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flix-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		431E86A4248F57C300E3BBB3 /* Sources */ = {
@@ -290,6 +359,7 @@
 		};
 		431E86BD248F57C800E3BBB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF503CA7E9EEC901B27D5D63 /* Pods-Flix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +378,7 @@
 		};
 		431E86BE248F57C800E3BBB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D47E9010B76D42EE814D2997 /* Pods-Flix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

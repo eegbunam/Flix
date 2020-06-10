@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Api {
-    
+    static var baseUrlImage = "http://image.tmdb.org/t/p/w300"
     
     static func getMovies(completion : @escaping (Response?) -> ()){
         
@@ -44,6 +44,14 @@ struct Api {
         }
         task.resume()
     }
+    
+    
+    static func getImageUrl(movie : Result) -> URL{
+        
+        return URL(string: baseUrlImage + movie.poster_path)!
+        
+        
+    }
 }
 
 
@@ -57,4 +65,6 @@ struct Result :Codable {
     var overview : String
     var id : Int
     var poster_path : String
+    
+ 
 }
