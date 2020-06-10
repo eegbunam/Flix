@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Api {
-    static var baseUrlImage = "http://image.tmdb.org/t/p/w300"
+    static var baseUrlImage = "https://image.tmdb.org/t/p/w300"
     
     static func getMovies(completion : @escaping (Response?) -> ()){
         

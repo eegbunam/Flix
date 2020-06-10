@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ViewController: UIViewController {
     
@@ -58,9 +59,11 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
         }
         
         if let cell = moviesTableView.dequeueReusableCell(withIdentifier: "cell") as? MoviesTableViewCell {
-            cell.titleLabel.text = Movies.results[indexPath.row].title
-            cell.descriptionLabel.text  = Movies.results[indexPath.row].overview
-//            cell.MoviewImageView.downloaded(from: Api.getImageUrl(movie: Movies.results[indexPath.row]), contentMode: .scaleAspectFill)
+            
+            let movie = Movies.results[indexPath.row]
+            cell.titleLabel.text = movie.title
+            cell.descriptionLabel.text  = movie.overview
+            cell.MoviewImageView.af.setImage(withURL: Api.getImageUrl(movie: movie))
             return cell
         }else{
             let cell = UITableViewCell()
