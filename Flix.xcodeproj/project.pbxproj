@@ -13,6 +13,8 @@
 		431E86B3248F57C300E3BBB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431E86B1248F57C300E3BBB3 /* Main.storyboard */; };
 		431E86B5248F57C800E3BBB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431E86B4248F57C800E3BBB3 /* Assets.xcassets */; };
 		431E86B8248F57C800E3BBB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431E86B6248F57C800E3BBB3 /* LaunchScreen.storyboard */; };
+		431E86C024908DBD00E3BBB3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E86BF24908DBD00E3BBB3 /* Api.swift */; };
+		431E86C22490977C00E3BBB3 /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E86C12490977C00E3BBB3 /* MoviesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		431E86B4248F57C800E3BBB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		431E86B7248F57C800E3BBB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		431E86B9248F57C800E3BBB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		431E86BF24908DBD00E3BBB3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		431E86C12490977C00E3BBB3 /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				431E86AB248F57C300E3BBB3 /* AppDelegate.swift */,
 				431E86AD248F57C300E3BBB3 /* SceneDelegate.swift */,
 				431E86AF248F57C300E3BBB3 /* ViewController.swift */,
+				431E86BF24908DBD00E3BBB3 /* Api.swift */,
+				431E86C12490977C00E3BBB3 /* MoviesTableViewCell.swift */,
 				431E86B1248F57C300E3BBB3 /* Main.storyboard */,
 				431E86B4248F57C800E3BBB3 /* Assets.xcassets */,
 				431E86B6248F57C800E3BBB3 /* LaunchScreen.storyboard */,
@@ -140,6 +146,8 @@
 			files = (
 				431E86B0248F57C300E3BBB3 /* ViewController.swift in Sources */,
 				431E86AC248F57C300E3BBB3 /* AppDelegate.swift in Sources */,
+				431E86C22490977C00E3BBB3 /* MoviesTableViewCell.swift in Sources */,
+				431E86C024908DBD00E3BBB3 /* Api.swift in Sources */,
 				431E86AE248F57C300E3BBB3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
