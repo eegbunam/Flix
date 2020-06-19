@@ -52,6 +52,16 @@ struct Api {
         
         
     }
+    
+    static func getBackImageUrl(movie : Result) -> URL{
+        let newBaseUrlImage = "https://image.tmdb.org/t/p/w500"
+        
+        return URL(string: newBaseUrlImage + movie.backdrop_path)!
+        
+        
+    }
+    
+    
 }
 
 
@@ -65,6 +75,8 @@ struct Result :Codable {
     var overview : String
     var id : Int
     var poster_path : String
+    var release_date : String
+    var backdrop_path : String
     
  
 }

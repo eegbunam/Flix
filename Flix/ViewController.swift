@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var moviesTableView: UITableView!
     var Movies : Response?
+    var indePathlicked : Int?
+    var detailSegue = "detail"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,10 +34,28 @@ class ViewController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == detailSegue {
+            if  let vc = segue.destination as? DetailViewController {
+                
+                if let indexPathClicked = indePathlicked {
+                    if let movies = Movies {
+                        vc.r = movies.results[indexPathClicked]
+                    }
+                   
+                }
+                
+                
+            }
+        }
+    }
+    
     func setUpTableview()  {
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
     }
+    
+    
 
 
 }
@@ -75,6 +95,12 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 145
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indePathlicked = indexPath.row
+        performSegue(withIdentifier: detailSegue, sender: self)
+        
     }
     
     
