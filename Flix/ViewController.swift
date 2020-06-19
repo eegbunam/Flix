@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     //iboutlets
     
     @IBOutlet weak var moviesTableView: UITableView!
+    @IBOutlet weak var moviesCollectionView: UICollectionView!
     var Movies : Response?
     var indePathlicked : Int?
     var detailSegue = "detail"
@@ -21,13 +22,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Movies"
-        setUpTableview()
+        setUpCollection()
         Api.getMovies { [weak self] (data) in
             
             guard let self = self else {return}
             self.Movies = data
             DispatchQueue.main.async {
-                self.moviesTableView.reloadData()
+                self.moviesCollectionView.reloadData()
             }
             
         }
@@ -50,57 +51,70 @@ class ViewController: UIViewController {
         }
     }
     
-    func setUpTableview()  {
-        moviesTableView.delegate = self
-        moviesTableView.dataSource = self
+    func setUpCollection() {
+        moviesCollectionView.delegate = self
+        moviesCollectionView.dataSource = self
+        let flowLayout = UICollectionViewFlowLayout()
+        moviesCollectionView.collectionViewLayout = flowLayout
+
     }
-    
-    
 
-
+    
 }
 
 
-extension ViewController : UITableViewDelegate , UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+extension ViewController :  UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let Movies = Movies else {
             return 5
         }
         return Movies.results.count
+
+        
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let Movies = Movies else {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = "The api failed sorry"
-            return cell
+             let cell = moviesCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
             
+            return cell
         }
         
-        if let cell = moviesTableView.dequeueReusableCell(withIdentifier: "cell") as? MoviesTableViewCell {
-            
-            let movie = Movies.results[indexPath.row]
-            cell.titleLabel.text = movie.title
-            cell.descriptionLabel.text  = movie.overview
-            cell.MoviewImageView.af.setImage(withURL: Api.getImageUrl(movie: movie))
-            return cell
-        }else{
-            let cell = UITableViewCell()
-            cell.textLabel?.text = Movies.results[indexPath.row].title
-            return cell
-        }
-      
+        let movie = Movies.results[indexPath.row]
+        let cell = moviesCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MoviesCollectionViewCell
+        cell.imageView.contentMode = .scaleAspectFill
+        cell.imageView.layer.cornerRadius = 7
+        cell.imageView.af.setImage(withURL: Api.getImageUrl(movie: movie))
+        cell.backgroundColor = .clear
+        
+        
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 2.1
+        let height = collectionView.frame.height / 2
+        
+        let size = CGSize(width: width, height: height)
+        return size
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         indePathlicked = indexPath.row
         performSegue(withIdentifier: detailSegue, sender: self)
-        
     }
     
     
@@ -108,24 +122,8 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
 }
 
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}
+
+
+
+
 
